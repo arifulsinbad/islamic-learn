@@ -9,7 +9,15 @@ import { FaUber } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 const Header = () => {
- const {user} = useContext(AuthContext)
+ const {user, logOut} = useContext(AuthContext)
+const handleLogout =()=>{
+ logOut()
+ .then(()=>{})
+ .catch(error =>{
+  console.error(error)
+ })
+}
+
  return (
   <div>
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -34,14 +42,15 @@ const Header = () => {
           </Nav>
           <Nav>
         <div>
-        <p>
-            
-            {user?.displayName}</p>
+     
         </div>
             <>
             {user?.uid ? <>
-          
-            <button>Log Out</button>
+            
+            
+            <span className='text-white mx-2'>{user?.displayName}</span>
+             <button onClick={handleLogout} className='mx-2'>Log Out</button>
+        
             </> : <>
             <Link to='/login'>Login</Link>
             <Link to ='/signup'>Sign Up</Link>
