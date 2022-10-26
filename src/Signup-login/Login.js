@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Login = () => {
- const {google} = useContext(AuthContext)
+ const {google, login} = useContext(AuthContext)
  const provider = new GoogleAuthProvider()
  const handleGoogle = () =>{
 google(provider)
@@ -20,9 +20,25 @@ google(provider)
  console.error(error)
 })
  }
+const handleLogin = event =>{
+ event.preventDefault()
+ const from = event.target;
+ const email = from.email.value;
+ const password = from.password.value;
+ console.log(email, password)
+ login(email, password)
+ .then(result =>{
+  const user = result.user;
+  console.log(user)
+
+ })
+ .catch(error =>{
+  console.error(error)
+ })
+}
  return (
   <div>
-       <Form>
+       <Form onSubmit={handleLogin}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control name='email' type="email" placeholder="Enter email" />
