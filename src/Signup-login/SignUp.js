@@ -5,6 +5,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const SignUp = () => {
 const {google} = useContext(AuthContext)
@@ -57,7 +58,7 @@ google(provider)
     </Form>
     <ButtonGroup vertical>
       <Button onClick={handleGoogle} variant="outline-primary"><FaGoogle></FaGoogle> Login With Google</Button>
-      <Button  variant="outline-dark my-3"><i class="fa-brands fa-github"></i> Login With GitHub</Button>
+      <Button  variant="outline-dark my-3"><FaGithub></FaGithub> Login With GitHub</Button>
 
     </ButtonGroup>
     

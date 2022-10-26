@@ -1,9 +1,11 @@
 import React from 'react';
 import { useContext } from 'react';
+import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { FaUber } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 const Header = () => {
@@ -31,10 +33,34 @@ const Header = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
+        <div>
+        <p>
+            
+            {user?.displayName}</p>
+        </div>
+            <>
+            {user?.uid ? <>
+          
+            <button>Log Out</button>
+            </> : <>
+            <Link to='/login'>Login</Link>
+            <Link to ='/signup'>Sign Up</Link>
+            
+            </>
+
+            }
+            
+            </>
+            <>
+              <Link >
+              {user?.uid ? 
+              <Image style={{height: '30px'}} roundedCircle src={user?.photoURL}></Image> :
+              <FaUber></FaUber>
+             
+
+              }
+              </Link>
+            </>
           </Nav>
         </Navbar.Collapse>
       </Container>
