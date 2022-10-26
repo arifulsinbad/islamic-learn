@@ -1,8 +1,24 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { useContext } from 'react';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const SignUp = () => {
+const {google} = useContext(AuthContext)
+ const provider = new GoogleAuthProvider()
+ const handleGoogle = () =>{
+google(provider)
+.then(result =>{
+ const user = result.user
+ console.log(user)
+})
+.catch(error =>{
+ console.error(error)
+})
+ }
  return (
   <div>
        <Form>
@@ -39,6 +55,12 @@ const SignUp = () => {
         Sign Up
       </Button>
     </Form>
+    <ButtonGroup vertical>
+      <Button onClick={handleGoogle} variant="outline-primary"><FaGoogle></FaGoogle> Login With Google</Button>
+      <Button  variant="outline-dark my-3"><i class="fa-brands fa-github"></i> Login With GitHub</Button>
+
+    </ButtonGroup>
+    
   </div>
  );
 };
