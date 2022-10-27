@@ -6,10 +6,16 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
  const {google, login} = useContext(AuthContext)
  const provider = new GoogleAuthProvider()
+ const [error, setError] = useState('')
+ const navigate = useNavigate()
+ const location =useLocation()
+ const form =location.state?.from?.pathname || '/'
  const handleGoogle = () =>{
 google(provider)
 .then(result =>{
@@ -30,10 +36,13 @@ const handleLogin = event =>{
  .then(result =>{
   const user = result.user;
   console.log(user)
+  from.reset()
+  navigate(form, {replace: true})
 
  })
  .catch(error =>{
   console.error(error)
+  setError(error.message)
  })
 }
  return (
@@ -57,9 +66,10 @@ const handleLogin = event =>{
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      {error}
     </Form>
     <ButtonGroup vertical>
-      <Button onClick={handleGoogle} variant="outline-primary"><FaGoogle></FaGoogle> Login With Google</Button>
+      <Button onClick={handleGoogle} variant="outline-primary mt-5"><FaGoogle></FaGoogle> Login With Google</Button>
       <Button  variant="outline-dark my-3"><FaGithub></FaGithub> Login With GitHub</Button>
 
     </ButtonGroup>

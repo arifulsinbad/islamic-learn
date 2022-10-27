@@ -8,6 +8,7 @@ export const AuthContext = createContext()
 const auth = getAuth(app)
 const AuthProvider = ({children}) => {
  const [user, setUser] = useState(null)
+ const [loading, setLoading] = useState(true)
 
 
 
@@ -32,12 +33,14 @@ return createUserWithEmailAndPassword(auth, email, password)
   const unSubcribe = onAuthStateChanged(auth, (currentUser)=>{
    console.log(currentUser)
    setUser(currentUser)
+   setLoading(false)
   })
+
 return ()=>{
  unSubcribe()
 }
  },[])
- const authInfo = {user, google, logOut, signUp, createUser, login}
+ const authInfo = {user, loading, google, logOut, signUp, createUser, login}
  return (
   <AuthContext.Provider value={authInfo}>
    {children}

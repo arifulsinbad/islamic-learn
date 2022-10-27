@@ -6,10 +6,12 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { useState } from 'react';
 
 const SignUp = () => {
 const {google, signUp, createUser} = useContext(AuthContext)
  const provider = new GoogleAuthProvider()
+ const [error, setError] = useState('')
  const handleGoogle = () =>{
 google(provider)
 .then(result =>{
@@ -37,6 +39,7 @@ signUp(email, password)
 })
 .catch(error =>{
  console.error(error)
+ setError(error.message)
 })
 
 
@@ -88,9 +91,10 @@ signUp(email, password)
       <Button variant="primary" type="submit">
         Sign Up
       </Button>
+      {error}
     </Form>
     <ButtonGroup vertical>
-      <Button onClick={handleGoogle} variant="outline-primary"><FaGoogle></FaGoogle> Login With Google</Button>
+      <Button onClick={handleGoogle} variant="outline-primary mt-5"><FaGoogle></FaGoogle> Login With Google</Button>
       <Button  variant="outline-dark my-3"><FaGithub></FaGithub> Login With GitHub</Button>
 
     </ButtonGroup>

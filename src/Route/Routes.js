@@ -1,8 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../Blog/Blog";
 import Details from "../Details/Details";
 import Catagory from "../Home/Catagory";
 import Home from "../Home/Home";
 import Main from "../Layout/Main";
+import Private from "../Private/Private";
+import RightSide from "../RightSide/RightSide";
 
 import Login from "../Signup-login/Login";
 import SignUp from "../Signup-login/SignUp";
@@ -29,11 +32,18 @@ export const router = createBrowserRouter([
    
    },
    {
-    path:'/details/:id', element:<Details></Details>,
+    path:'/details/:id', element:<Private><Details></Details></Private>,
     loader:({params})=>{
 return fetch(`http://localhost:5000/islamic/${params.id}`)
     }
+   },
+   {
+    path:'/blog', element:<Blog></Blog>
    }
+ 
+
   ]
- }
+ },
+
+
 ])

@@ -8,6 +8,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaUber } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import Tooltip from 'react-bootstrap/Tooltip';
 const Header = () => {
  const {user, logOut} = useContext(AuthContext)
 const handleLogout =()=>{
@@ -26,19 +27,9 @@ const handleLogout =()=>{
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="#features">FAQ</Nav.Link>
+            <Nav.Link href="/blog">Blog</Nav.Link>
+            
           </Nav>
           <Nav>
         <div>
@@ -63,7 +54,7 @@ const handleLogout =()=>{
             <>
               <Link >
               {user?.uid ? 
-              <Image style={{height: '30px'}} roundedCircle src={user?.photoURL}></Image> :
+              <Image style={{height: '30px'}} roundedCircle src={user?.photoURL} ></Image> :
               <FaUber></FaUber>
              
 
