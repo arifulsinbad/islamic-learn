@@ -2,6 +2,9 @@
   text-decoration: none;
   color: white;
 }
+.dark{
+  background-color: #282c34;
+}
 
 .App-logo {
   height: 40vmin;

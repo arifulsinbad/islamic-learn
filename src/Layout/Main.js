@@ -7,7 +7,7 @@ import RightSide from '../RightSide/RightSide';
 
 const Main = () => {
  return (
-  <div>
+  <div className=''>
    <Header></Header>
    <Container className='mt-5'>
     <Row>

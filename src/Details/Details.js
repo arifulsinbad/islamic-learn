@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import { FaEye } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Part from './Part';
+import './Details.css'
 
 const Details = () => {
  const loader = useLoaderData()
@@ -13,6 +14,13 @@ const Details = () => {
  
  return (
   <div>
+    <div>
+      <a href={`${name} resume.pdf`} 
+      download={`${name} resume.pdf`}>
+        
+        <button className='button'>Resume PDF</button>
+      </a>
+    </div>
      <Card>
       <div>
       <Card.Header><h2>{name}</h2></Card.Header>

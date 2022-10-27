@@ -7,7 +7,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
  const {google, login} = useContext(AuthContext)
@@ -61,7 +61,7 @@ const handleLogin = event =>{
         <Form.Control name='password' type="password" placeholder="Password" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
+        <Form.Check type="checkbox" label={<>Accept:<Link to='/signup' className='text-primary'>Sign Up</Link></>} />
       </Form.Group>
       <Button variant="primary" type="submit">
         Submit

@@ -9,6 +9,7 @@ const auth = getAuth(app)
 const AuthProvider = ({children}) => {
  const [user, setUser] = useState(null)
  const [loading, setLoading] = useState(true)
+ const [color, setColor] = useState('dark')
 
 
 
@@ -40,11 +41,13 @@ return ()=>{
  unSubcribe()
 }
  },[])
- const authInfo = {user, loading, google, logOut, signUp, createUser, login}
+ const authInfo = {user, loading, color, google, logOut, signUp, createUser, login, setColor}
  return (
-  <AuthContext.Provider value={authInfo}>
+<div >
+<AuthContext.Provider  value={authInfo} >
    {children}
   </AuthContext.Provider>
+</div>
  );
 };
 
