@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { FaToggleOff, FaToggleOn, FaUber } from 'react-icons/fa';
+import { FaToggleOff, FaToggleOn,FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Button from 'react-bootstrap/Button';
@@ -58,10 +58,10 @@ if(event){
             
             
             <span className='text-white mx-2'>{user?.displayName}</span>
-             <button onClick={handleLogout} className='mx-2'>Log Out</button>
+             <Link onClick={handleLogout} className='mx-2'>Log Out</Link>
         
             </> : <>
-            <Link to='/login'>Login</Link>
+            <Link className='mx-3' to='/login'>Login</Link>
             <Link to ='/signup'>Sign Up</Link>
             
             </>
@@ -89,7 +89,7 @@ if(event){
       ))}
              
               </> :
-              <FaUber></FaUber>
+              <FaUser className='mx-2'></FaUser>
              
 
               }
