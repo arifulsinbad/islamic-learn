@@ -9,7 +9,7 @@ const RightSide = () => {
  const [catagory, setCatagory] = useState([])
  console.log(catagory)
 useEffect(()=>{
-  fetch('http://localhost:5000/islamic-catagory')
+  fetch('https://islamic-learn-server.vercel.app/islamic-catagory')
   .then(res => res.json())
   .then(data => setCatagory(data))
   .catch(error => console.error(error))

@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
   children:[
    {
     path:'/', element:<Home></Home>,
-    loader:()=> fetch('http://localhost:5000/islamic')
+    loader:()=> fetch('https://islamic-learn-server.vercel.app/islamic')
    },
    {
     path:'/signup', element:<SignUp></SignUp>
@@ -27,14 +27,14 @@ export const router = createBrowserRouter([
    {
     path:'/catagory/:id', element:<Catagory></Catagory>,
     loader:({params})=>{
-    return fetch(`http://localhost:5000/catagory/${params.id}`)
+    return fetch(`https://islamic-learn-server.vercel.app/catagory/${params.id}`)
     },
    
    },
    {
     path:'/details/:id', element:<Private><Details></Details></Private>,
     loader:({params})=>{
-return fetch(`http://localhost:5000/islamic/${params.id}`)
+return fetch(`https://islamic-learn-server.vercel.app/islamic/${params.id}`)
     }
    },
    {

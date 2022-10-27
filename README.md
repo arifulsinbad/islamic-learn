@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# islamic-learn
+Live Site Link : https://islamic-learn.web.app/
+1. React Router is a fully-featured client and server-side routing library for React, a JavaScript library for building user interfaces. React Router runs anywhere React runs; on the web, on the server with node.js, and on React Native.
+2. React-Bootstrap replaces the Bootstrap JavaScript. Each component has been built from scratch as a true React component, without unneeded dependencies like jQuery. As one of the oldest React libraries, React-Bootstrap has evolved and grown alongside React, making it an excellent choice as your UI foundation.
+3. Firebase is an all-in-one backend as a service provider (BaaS) that provides a database, authentication, and cloud storage among its many services. In this tutorial you're going to learn how to use the Firebase Real-Time Database service in a React application.
+4. React-icons is a small library that helps you add icons (from all different icon libraries) to your React apps. It delivers the icons to your app as components so they're easier to work with, and it lets you style them so they're consistent with the overall style of your app 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
